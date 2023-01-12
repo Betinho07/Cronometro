@@ -1,0 +1,52 @@
+
+using System;
+
+
+class Profram
+{
+    static void Main(string[] args)
+    {
+       Menu();
+
+    }
+
+    static void Menu()
+    {
+        Console.Clear();
+        Console.WriteLine("Quanto tempo deja contar?");
+        Console.WriteLine("S = segundos ");
+        Console.WriteLine("M = Minutos");
+        Console.WriteLine("0 = finalizar");
+
+        string data = Console.ReadLine().ToLower();
+        char tipo = char.Parse(data.Substring(data.Length - 1, 1));
+        int tempo = int.Parse(data.Substring(0, data.Length - 1));
+        int mutiplicar = 1;
+
+        if (tipo == 'm')
+            mutiplicar = 60;
+
+        if (tempo == 'f')
+        {
+            System.Environment.Exit(0);
+        }
+         Inicio(tempo * mutiplicar);
+    }
+
+    static void Inicio(int tempo)
+    {
+        
+        int minutoAtual = 0;
+
+        while (minutoAtual != tempo)
+        {
+           Console.Clear();
+            minutoAtual++;
+            Console.WriteLine(minutoAtual);
+            Thread.Sleep(1000);
+        }
+        Thread.Sleep(3000);
+        Console.Clear();
+        Console.WriteLine("Cronometro Finalizado");
+    }
+}
